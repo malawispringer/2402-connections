@@ -39,7 +39,9 @@ void  printMenu(){
 }
 
 void printControls(){
-    std::cout << "***Controls go here***\n\n"; 
+    std::cout << "Type the four words you would like to guess with a singular space"
+              << "between them and press enter.\n"; 
+    std::cout << 
 }
 
 void printRules(){
