@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "gameplay.h"
 
 void printMenu();
 void printRules(); 
@@ -17,6 +18,7 @@ int main(){
     std::cout << "-----------Welcome to Connections!----------\n"; 
     printMenu();
     return 0; 
+    playGame(); 
 }
 
 void  printMenu(){
