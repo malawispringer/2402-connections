@@ -34,7 +34,7 @@ void  printMenu(){
     } else if (selection == 'c'){
         printControls();
         printMenu(); 
-    }  else if (selection != 112){
+    }  else if (selection != 'p'){
         std::cout << "***Invalid Input***\n"; 
         printMenu(); 
     }
@@ -43,7 +43,7 @@ void  printMenu(){
 void printControls(){
     std::cout << "Type the four words you would like to guess with a singular space"
               << "between them and press enter.\n"; 
-    std::cout << 
+    std::cout << "then\n"; 
 }
 
 void printRules(){
