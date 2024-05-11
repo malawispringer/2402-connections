@@ -17,8 +17,9 @@ void printControls();
 int main(){ 
     std::cout << "-----------Welcome to Connections!----------\n"; 
     printMenu();
+    playGame();
     return 0; 
-    playGame(); 
+ 
 }
 
 void  printMenu(){

@@ -1,8 +1,9 @@
-Straight Commercial Organizations
-agency,company,enterprise,firm
+p
+Easy Commercial Organizations
+agency company enterprise firm
 Simple Classic Dog Names
-fluffy,rex,rover,spot
+fluffy rex rover spot
 Difficult Farm Fixtures
-coop,pen,stable,sty
+coop pen stable sty
 Tricky Colors Minus Their First Letters
-old,lack,range,ink
+old lack range ink
