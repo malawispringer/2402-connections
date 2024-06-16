@@ -15,12 +15,12 @@ class Data {
 
 }; 
 
-void playGame(){
-    //read in the data, 
-    Board main; 
-    main.readData(); 
 
-    main.printBoard(); 
+void playGame(Board &game){
+    //read in the data,  
+    game.readData(); 
+    game.setBoard(); 
+    game.printBoard(); 
     //so it compiles
     // std::string complier;
     // complier = "test"; 

@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <cassert>
 #include "gameplay.h"
 
 void printMenu();
@@ -14,10 +16,19 @@ void printRules();
 void printControls(); 
 
 
-int main(){ 
+int main(int argc, char **argv){ 
     std::cout << "-----------Welcome to Connections!----------\n"; 
     printMenu();
-    playGame();
+    std::string read_file; 
+    if (argc == 2){
+        for (int i = 1; i < argc; i++){
+            if (i == 1) read_file = argv[i]; 
+        }
+    }
+    std::ifstream stream(read_file); 
+    assert(stream.is_open()); 
+    Board created_board(stream);
+    playGame(created_board);
     return 0; 
  
 }
