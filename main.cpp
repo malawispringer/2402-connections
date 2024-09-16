@@ -17,6 +17,11 @@ void printControls();
 
 
 int main(int argc, char **argv){ 
+    if(argc != 2){
+        std::cout << "Please include input file!\n"; 
+        exit(1); 
+    } 
+    
     std::cout << "-----------Welcome to Connections!----------\n"; 
     printMenu();
     std::string read_file; 
@@ -25,9 +30,11 @@ int main(int argc, char **argv){
             if (i == 1) read_file = argv[i]; 
         }
     }
+
     std::ifstream stream(read_file); 
     assert(stream.is_open()); 
     Board created_board(stream);
+
     playGame(created_board);
     return 0; 
  
