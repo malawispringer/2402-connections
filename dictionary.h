@@ -12,15 +12,20 @@ using namespace std;
 
 class Board {
     public:
+    //The unmodified list of the words
     vector<string> wordsList; 
+    //The categories that the user has gotten correct in order
     vector<int> correct_lines = {}; 
+    //the titles of all the categories
     vector<string> titles; 
 
     
     Board(std::istream& board_input);
+    //pprints the board for the player tolook at
     void printBoard(); 
     void setBoard();
-    void readData();  
+    void readData(); 
+    void delete_from_word_list(int level);
     
     unordered_map<std::string, int> words; 
  
@@ -54,7 +59,13 @@ void Board::setBoard(){
 
 //E: prints the board in a human legible manner
 void Board::printBoard(){
-
+    for (auto i : correct_lines){
+        std::cout << titles[i] << "\n"; 
+        for (int j = i*4; j < (i*4)+4; j++){
+            std::cout << wordsList[j] << ", "; 
+        }
+        std::cout << "\n"; 
+    }
     int count = 0; 
   for(auto i : words){
     count++; 
@@ -63,8 +74,8 @@ void Board::printBoard(){
   }
 } //Board::print Board
 
-void delete_from_word_list(int level){
-    
+void Board::delete_from_word_list(int level){
+
 }
 /*
 

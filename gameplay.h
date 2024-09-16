@@ -9,7 +9,7 @@ bool userTurn(Board &game);
 void playGame(Board &game){
     int lives = 4; 
     //game.readData(); 
-     game.setBoard(); 
+    // game.setBoard(); 
     while (lives != 0){
         std::cout << "Lives: " << lives << "\n"; 
         game.printBoard(); 
@@ -31,9 +31,21 @@ bool userTurn(Board &game){
     std::string word4; 
     std::cin >> word1 >> word2 >> word3 >> word4; 
     //need to add error checking for too many or too few words
+    //more or less words
+    //any of them not a word in a 
+   // if (std::find(game.wordsList.begin(), game.wordsList))
+    //any of them the same word
+    if (word1 == word2 || word1 == word3 || word1 == word4 || word2 == word3 
+        || word2 == word3 || word3 == word4){
+        std::cout << "Please input 4 different words.\n"; 
+        //so it doesnt reduce the lives
+        return true; 
+    }
+    
+    
+
     //if the first two are in the same cat
     int num_cor = 0; 
-    std::cout << game.words[word1] << " " << game.words[word2] << " " << game.words[word3] << " " << game.words[word4] << " "; 
     if (game.words[word1] == game.words[word2]){
         num_cor++; 
     }
@@ -46,10 +58,13 @@ bool userTurn(Board &game){
         
  
     
-    if (num_cor == 3) return true;
+    if (num_cor == 3){ 
     //if the line is correct now need to print the line on top
     //so add it to correct lines
     game.correct_lines.push_back(game.words[word1]); 
+
+    return true;
+    }
     if (num_cor == 2){
         std::cout << "One away!\n"; 
     }
