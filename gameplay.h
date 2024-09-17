@@ -11,7 +11,7 @@ void playGame(Board &game){
     //game.readData(); 
     // game.setBoard(); 
     while (lives != 0 && !game.words.empty()){
-        std::cout << "Lives: " << lives << "\n"; 
+        std::cout << "\nLives: " << lives << "\n"; 
         game.printBoard(); 
         if (!userTurn(game)){
             lives--; 
