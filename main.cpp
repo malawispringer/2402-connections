@@ -44,7 +44,8 @@ void  printMenu(){
     std::cout << "Please make a selection from the menu below.\n"
               << "r: Rules\n"
               << "c: Controls\n"
-              << "p: Play Game\n";
+              << "p: Play Game\n"
+              << "q: Quit\n";
     char selection; 
     std::cin >> selection; 
     if (selection == 'r'){
@@ -53,6 +54,9 @@ void  printMenu(){
     } else if (selection == 'c'){
         printControls();
         printMenu(); 
+    } else if (selection == 'q'){
+        std::cout << "Good-bye!\n";
+        exit(0); 
     }  else if (selection != 'p'){
         std::cout << "***Invalid Input***\n"; 
         printMenu(); 

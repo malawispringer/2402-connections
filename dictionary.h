@@ -75,7 +75,9 @@ void Board::printBoard(){
 } //Board::print Board
 
 void Board::delete_from_word_list(int level){
-
+    for (int j = level*4; j < (level*4)+4; j++){
+        words.erase(wordsList[j]); 
+    }
 }
 /*
 

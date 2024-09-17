@@ -10,15 +10,20 @@ void playGame(Board &game){
     int lives = 4; 
     //game.readData(); 
     // game.setBoard(); 
-    while (lives != 0){
+    while (lives != 0 && !game.words.empty()){
         std::cout << "Lives: " << lives << "\n"; 
         game.printBoard(); 
         if (!userTurn(game)){
             lives--; 
         }
     }  
-    //so it compiles
-    if (lives == 0) std::cout << "Better luck next time!\n"; 
+        if (lives == 4) {
+            std::cout << "Perfect game!\n"; 
+        } else if (lives == 0) {
+            std::cout << "Better luck next time!\n";
+        } else {
+            std::cout << "Nice job!\n"; 
+        } 
     // std::string complier;
     // complier = "test"; 
 } //playGame()
@@ -33,7 +38,12 @@ bool userTurn(Board &game){
     //need to add error checking for too many or too few words
     //more or less words
     //any of them not a word in a 
-   // if (std::find(game.wordsList.begin(), game.wordsList))
+    if (!game.words.count(word1) || !game.words.count(word2) 
+        || !game.words.count(word3) || !game.words.count(word4)){
+            std::cout << "Please input words from the board.\n"; 
+            //so it doesnt reduce the lives
+            return true; 
+        }
     //any of them the same word
     if (word1 == word2 || word1 == word3 || word1 == word4 || word2 == word3 
         || word2 == word3 || word3 == word4){
@@ -55,15 +65,16 @@ bool userTurn(Board &game){
     if(game.words[word3] == game.words[word4]){
         num_cor++;
     }
-        
- 
+    if(game.words[word4] == game.words[word1]){
+        num_cor++;
+    }    
     
-    if (num_cor == 3){ 
+    if (num_cor == 4){ 
     //if the line is correct now need to print the line on top
     //so add it to correct lines
-    game.correct_lines.push_back(game.words[word1]); 
-
-    return true;
+        game.correct_lines.push_back(game.words[word1]); 
+        game.delete_from_word_list(game.words[word1]); 
+        return true;
     }
     if (num_cor == 2){
         std::cout << "One away!\n"; 
